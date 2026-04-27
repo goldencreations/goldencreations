@@ -101,7 +101,15 @@ export function Testimonials() {
   const testimonials = testimonialsData[language];
 
   return (
-    <section id="testimonials" className="py-24 bg-secondary/50 relative">
+    <motion.section
+      id="testimonials"
+      className="py-24 bg-secondary/50 relative"
+      initial={{ opacity: 0, y: 100, scale: 0.92, rotateX: 8, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+      style={{ transformOrigin: "center bottom" }}
+    >
       <div className="celebration-pattern" />
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -199,6 +207,6 @@ export function Testimonials() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

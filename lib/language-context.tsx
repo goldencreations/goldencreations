@@ -128,9 +128,9 @@ const translations: Record<Language, Translations> = {
     
     // Hero
     heroBadge: "Tanzania's #1 Digital Invitation Platform",
-    heroTitle1: "Your Event Deserves",
-    heroTitle2: "A Golden Touch",
-    heroSubtitle: "Transform your special moments with stunning digital invitations. From weddings to corporate events, we craft elegant e-cards that captivate your guests and simplify event management across all of Tanzania.",
+    heroTitle1: "Planning Events Is",
+    heroTitle2: "Too Stressful",
+    heroSubtitle: "Guest lists, follow-ups, RSVPs, and tracking can quickly become overwhelming. Golden eCards turns that chaos into a smooth digital experience from invite to event day.",
     heroCTA1: "WhatsApp Us",
     heroCTA2: "View Samples",
     heroStat1: "Invitations Sent",
@@ -139,8 +139,8 @@ const translations: Record<Language, Translations> = {
     heroStat4: "Rating",
     
     // Services
-    servicesTag: "What We Offer",
-    servicesTitle: "Our Services",
+    servicesTag: "How We Solve It",
+    servicesTitle: "What We Do",
     servicesSubtitle: "Comprehensive digital solutions for all your event needs. From design to delivery, we handle everything with precision and elegance.",
     service1Title: "Digital Invitations",
     service1Desc: "Stunning electronic cards designed to impress. Replace paper invitations with elegant digital alternatives sent via WhatsApp & SMS.",
@@ -161,9 +161,9 @@ const translations: Record<Language, Translations> = {
     eventConference: "Conferences",
     
     // Why Us
-    whyUsTag: "Our Edge",
+    whyUsTag: "The Problem",
     whyUsTitle: "Why Choose Golden eCards?",
-    whyUsSubtitle: "We solve the problems that traditional invitations create. Experience the golden difference in speed, accuracy, and reliability.",
+    whyUsSubtitle: "Traditional invitations cause delays, missed responses, and extra cost. Here is the exact difference between old methods and the Golden eCards workflow.",
     traditional: "Traditional Way",
     goldenWay: "Golden eCards Way",
     problem1T: "Paper cards take days to print",
@@ -184,14 +184,14 @@ const translations: Record<Language, Translations> = {
     adv4Desc: "Always available when you need us",
     
     // Portfolio
-    portfolioTag: "Our Work",
-    portfolioTitle: "Sample Designs",
-    portfolioSubtitle: "Explore our collection of beautifully crafted digital invitations. Each design is customized to reflect your unique style and event theme.",
+    portfolioTag: "Proof",
+    portfolioTitle: "Samples & Videos",
+    portfolioSubtitle: "See real invitation designs and watch our work in motion. This is how your event can look and feel with Golden eCards.",
     filterAll: "All",
     videoShowcase: "See Our Work in Action",
     
     // Packages
-    packagesTag: "Pricing",
+    packagesTag: "Choose Your Plan",
     packagesTitle: "Our Packages",
     packagesSubtitle: "Choose the perfect package for your event. All packages include professional design and dedicated support.",
     packageCTA: "Choose Package",
@@ -199,7 +199,7 @@ const translations: Record<Language, Translations> = {
     popular: "Most Popular",
     
     // Testimonials
-    testimonialsTag: "Testimonials",
+    testimonialsTag: "Real Results",
     testimonialsTitle: "What Our Clients Say",
     testimonialsSubtitle: "Don't just take our word for it. Here's what our happy clients across Tanzania have to say about their experience with Golden eCards.",
     eventOf: "Event:",
@@ -249,7 +249,7 @@ const translations: Record<Language, Translations> = {
     heroStat4: "Ukadiriaji",
     
     // Services
-    servicesTag: "Tunachokupa",
+    servicesTag: "Tunavyotatua",
     servicesTitle: "Huduma Zetu",
     servicesSubtitle: "Suluhisho kamili za kidigitali kwa mahitaji yote ya matukio yako. Kuanzia muundo hadi usambazaji, tunashughulikia kila kitu kwa usahihi na umaridadi.",
     service1Title: "Mialiko ya Kidigitali",
@@ -271,7 +271,7 @@ const translations: Record<Language, Translations> = {
     eventConference: "Mikutano",
     
     // Why Us
-    whyUsTag: "Ubora Wetu",
+    whyUsTag: "Changamoto",
     whyUsTitle: "Kwa Nini Golden eCards?",
     whyUsSubtitle: "Tunasuluhisha matatizo yanayoletwa na mialiko ya jadi. Pata tofauti ya dhahabu katika kasi, usahihi, na kuaminika.",
     traditional: "Njia ya Jadi",
@@ -294,14 +294,14 @@ const translations: Record<Language, Translations> = {
     adv4Desc: "Daima tunapatikana unapotuhitaji",
     
     // Portfolio
-    portfolioTag: "Kazi Zetu",
+    portfolioTag: "Uthibitisho",
     portfolioTitle: "Sampuli za Miundo",
     portfolioSubtitle: "Chunguza mkusanyiko wetu wa mialiko ya kidigitali iliyoundwa kwa uzuri. Kila muundo unabadilishwa ili kuonyesha mtindo wako wa kipekee.",
     filterAll: "Zote",
     videoShowcase: "Tazama Kazi Zetu",
     
     // Packages
-    packagesTag: "Bei",
+    packagesTag: "Chagua Kifurushi",
     packagesTitle: "Vifurushi Vyetu",
     packagesSubtitle: "Chagua kifurushi kinachofaa kwa tukio lako. Vifurushi vyote vinajumuisha muundo wa kitaalamu na msaada.",
     packageCTA: "Chagua Kifurushi",
@@ -309,7 +309,7 @@ const translations: Record<Language, Translations> = {
     popular: "Maarufu Zaidi",
     
     // Testimonials
-    testimonialsTag: "Maoni",
+    testimonialsTag: "Matokeo Halisi",
     testimonialsTitle: "Wateja Wetu Wanasema Nini",
     testimonialsSubtitle: "Usisikilize tu maneno yetu. Hapa ni maoni ya wateja wetu wenye furaha kote Tanzania kuhusu uzoefu wao na Golden eCards.",
     eventOf: "Tukio:",

@@ -15,11 +15,11 @@ export function Navbar() {
   const { t } = useLanguage();
 
   const navLinks = [
+    { href: "#why-us", label: t.navWhyUs },
     { href: "#services", label: t.navServices },
     { href: "#portfolio", label: t.navPortfolio },
-    { href: "#why-us", label: t.navWhyUs },
-    { href: "#packages", label: t.navPackages },
     { href: "#testimonials", label: t.navReviews },
+    { href: "#packages", label: t.navPackages },
     { href: "#contact", label: t.navContact },
   ];
 
