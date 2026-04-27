@@ -27,10 +27,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://goldenecard.co.tz'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en': '/en',
-      'sw': '/sw',
-    },
   },
   openGraph: {
     type: 'website',
@@ -65,9 +61,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'your-google-verification-code',
   },
   icons: {
     icon: [
@@ -205,10 +198,11 @@ export default function RootLayout({
               "@type": "BreadcrumbList",
               "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://goldenecard.co.tz" },
-                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://goldenecard.co.tz#services" },
-                { "@type": "ListItem", "position": 3, "name": "Portfolio", "item": "https://goldenecard.co.tz#portfolio" },
-                { "@type": "ListItem", "position": 4, "name": "Packages", "item": "https://goldenecard.co.tz#packages" },
-                { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://goldenecard.co.tz#contact" }
+                { "@type": "ListItem", "position": 2, "name": "Why Us", "item": "https://goldenecard.co.tz/why-us" },
+                { "@type": "ListItem", "position": 3, "name": "Services", "item": "https://goldenecard.co.tz/services" },
+                { "@type": "ListItem", "position": 4, "name": "Portfolio", "item": "https://goldenecard.co.tz/portfolio" },
+                { "@type": "ListItem", "position": 5, "name": "Packages", "item": "https://goldenecard.co.tz/packages" },
+                { "@type": "ListItem", "position": 6, "name": "Contact", "item": "https://goldenecard.co.tz/contact" }
               ]
             })
           }}
