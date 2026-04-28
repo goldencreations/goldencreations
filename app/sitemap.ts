@@ -20,6 +20,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/testimonials",
     "/packages",
     "/contact",
+    "/kadi-za-mialiko",
+    "/mialiko-ya-kidigitali",
+    "/kadi-za-mialiko-ya-harusi",
+    "/mialiko-ya-sendoff",
+    "/kadi-za-kitchen-party",
+    "/mialiko-ya-siku-ya-kuzaliwa",
+    "/mialiko-ya-kikazi",
   ];
 
   return routes.map((route, index) => ({

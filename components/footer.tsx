@@ -56,6 +56,16 @@ export function Footer() {
     ],
   };
 
+  const swahiliSeoLinks = [
+    { label: "Kadi za Mialiko", href: "/kadi-za-mialiko" },
+    { label: "Mialiko ya Kidigitali", href: "/mialiko-ya-kidigitali" },
+    { label: "Kadi za Mialiko ya Harusi", href: "/kadi-za-mialiko-ya-harusi" },
+    { label: "Mialiko ya Send-off", href: "/mialiko-ya-sendoff" },
+    { label: "Kadi za Kitchen Party", href: "/kadi-za-kitchen-party" },
+    { label: "Mialiko ya Siku ya Kuzaliwa", href: "/mialiko-ya-siku-ya-kuzaliwa" },
+    { label: "Mialiko ya Kikazi", href: "/mialiko-ya-kikazi" },
+  ];
+
   return (
     <footer className="bg-card border-t border-border/50 relative">
       <div className="celebration-pattern" />
@@ -94,6 +104,23 @@ export function Footer() {
 
             <div className="flex items-center gap-2 text-sm text-gold font-heading italic">
               <span>&ldquo;Your event deserves a golden touch&rdquo;</span>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="font-semibold mb-3 font-heading">
+                {language === "en" ? "Popular Swahili Searches" : "Utafutaji Maarufu wa Kiswahili"}
+              </h4>
+              <div className="flex flex-wrap gap-3">
+                {swahiliSeoLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-xs px-3 py-1.5 rounded-full bg-secondary border border-border/50 text-muted-foreground hover:text-gold hover:border-gold/40 transition-colors font-body"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
