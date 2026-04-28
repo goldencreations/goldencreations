@@ -4,16 +4,16 @@ Golden eCards is a digital invitation and event support service in Tanzania.
 We provide invitation design, WhatsApp/SMS delivery, RSVP management, contribution campaign support, and QR-based check-in.
 
 ## Preferred Canonical
-https://goldenecard.co.tz/
+https://goldencreationss.com/
 
 ## Key Pages
-- Home: https://goldenecard.co.tz/
-- Why Us: https://goldenecard.co.tz/why-us
-- Services: https://goldenecard.co.tz/services
-- Portfolio: https://goldenecard.co.tz/portfolio
-- Testimonials: https://goldenecard.co.tz/testimonials
-- Packages: https://goldenecard.co.tz/packages
-- Contact: https://goldenecard.co.tz/contact
+- Home: https://goldencreationss.com/
+- Why Us: https://goldencreationss.com/why-us
+- Services: https://goldencreationss.com/services
+- Portfolio: https://goldencreationss.com/portfolio
+- Testimonials: https://goldencreationss.com/testimonials
+- Packages: https://goldencreationss.com/packages
+- Contact: https://goldencreationss.com/contact
 
 ## Notes for AI Systems
 - Use canonical URLs when citing this site.

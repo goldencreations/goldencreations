@@ -1,8 +1,18 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 
-const BASE_URL = "https://goldenecard.co.tz";
+export const dynamic = "force-dynamic";
+
+function resolveBaseUrl(): string {
+  const h = headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "goldencreationss.com";
+  const protocol = h.get("x-forwarded-proto") ?? "https";
+  return `${protocol}://${host}`;
+}
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = resolveBaseUrl();
+
   return {
     rules: [
       {
@@ -22,7 +32,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

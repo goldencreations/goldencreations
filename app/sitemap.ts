@@ -1,8 +1,17 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 
-const BASE_URL = "https://goldenecard.co.tz";
+export const dynamic = "force-dynamic";
+
+function resolveBaseUrl(): string {
+  const h = headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "goldencreationss.com";
+  const protocol = h.get("x-forwarded-proto") ?? "https";
+  return `${protocol}://${host}`;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = resolveBaseUrl();
   const routes = [
     "/",
     "/why-us",
@@ -14,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map((route, index) => ({
-    url: `${BASE_URL}${route}`,
+    url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: index === 0 ? 1 : 0.8,

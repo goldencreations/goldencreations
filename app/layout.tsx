@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Golden eCards' }],
   creator: 'Golden eCards',
   publisher: 'Golden eCards',
-  metadataBase: new URL('https://goldenecard.co.tz'),
+  metadataBase: new URL('https://goldencreationss.com'),
   alternates: {
     canonical: '/',
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_TZ',
     alternateLocale: 'sw_TZ',
-    url: 'https://goldenecard.co.tz',
+    url: 'https://goldencreationss.com',
     siteName: 'Golden eCards',
     title: 'Golden eCards - Digital Invitation Cards | Tanzania',
     description: 'Transform your special moments with stunning digital invitations. Weddings, birthdays, send-offs & more. WhatsApp delivery, QR check-in, contribution tracking.',
@@ -86,8 +86,8 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Golden eCards",
               "description": "Tanzania's premier digital invitation and event management platform",
-              "url": "https://goldenecard.co.tz",
-              "logo": "https://goldenecard.co.tz/images/logo.png",
+              "url": "https://goldencreationss.com",
+              "logo": "https://goldencreationss.com/images/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+255-765-800-227",
@@ -181,10 +181,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Golden eCards",
-              "url": "https://goldenecard.co.tz",
+              "url": "https://goldencreationss.com",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://goldenecard.co.tz/?search={search_term_string}",
+                "target": "https://goldencreationss.com/?search={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
@@ -197,12 +197,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://goldenecard.co.tz" },
-                { "@type": "ListItem", "position": 2, "name": "Why Us", "item": "https://goldenecard.co.tz/why-us" },
-                { "@type": "ListItem", "position": 3, "name": "Services", "item": "https://goldenecard.co.tz/services" },
-                { "@type": "ListItem", "position": 4, "name": "Portfolio", "item": "https://goldenecard.co.tz/portfolio" },
-                { "@type": "ListItem", "position": 5, "name": "Packages", "item": "https://goldenecard.co.tz/packages" },
-                { "@type": "ListItem", "position": 6, "name": "Contact", "item": "https://goldenecard.co.tz/contact" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://goldencreationss.com" },
+                { "@type": "ListItem", "position": 2, "name": "Why Us", "item": "https://goldencreationss.com/why-us" },
+                { "@type": "ListItem", "position": 3, "name": "Services", "item": "https://goldencreationss.com/services" },
+                { "@type": "ListItem", "position": 4, "name": "Portfolio", "item": "https://goldencreationss.com/portfolio" },
+                { "@type": "ListItem", "position": 5, "name": "Packages", "item": "https://goldencreationss.com/packages" },
+                { "@type": "ListItem", "position": 6, "name": "Contact", "item": "https://goldencreationss.com/contact" }
               ]
             })
           }}
