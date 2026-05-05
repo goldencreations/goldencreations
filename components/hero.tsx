@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle, Sparkles } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
 export function Hero() {
@@ -18,37 +19,46 @@ export function Hero() {
       <div className="floating-decoration" style={{ top: '60%', right: '5%' }} />
       <div className="floating-decoration" style={{ bottom: '10%', left: '40%' }} />
 
-      {/* Floating cards decoration */}
+      {/* Decorative invitation florals */}
       <motion.div
-        className="absolute top-20 right-10 md:right-20 w-32 md:w-48 h-40 md:h-56 bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl border border-gold/30 backdrop-blur-sm hidden lg:block"
+        className="pointer-events-none absolute top-20 right-10 z-[1] hidden h-40 w-32 md:right-20 md:h-56 md:w-48 lg:block"
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
+        aria-hidden
+      >
+        <Image
+          src="/images/sample1.png"
+          alt=""
+          fill
+          className="object-contain object-right-top drop-shadow-md"
+          sizes="(min-width: 768px) 192px, 128px"
+        />
+        <div className="absolute inset-0 bg-black/40 rounded-2xl" aria-hidden />
+      </motion.div>
       <motion.div
-        className="absolute bottom-32 left-10 md:left-20 w-28 md:w-40 h-36 md:h-48 bg-gradient-to-br from-gold/15 to-gold/5 rounded-2xl border border-gold/20 backdrop-blur-sm hidden lg:block"
+        className="pointer-events-none absolute bottom-32 left-10 z-[1] hidden h-36 w-28 md:left-20 md:h-48 md:w-40 lg:block"
         animate={{ y: [0, 15, 0], rotate: [0, -3, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
+        aria-hidden
+      >
+        <Image
+          src="/images/sample2.png"
+          alt=""
+          fill
+          className="object-contain object-left-bottom drop-shadow-md"
+          sizes="(min-width: 768px) 160px, 112px"
+        />
+        <div className="absolute inset-0 bg-black/40 rounded-2xl" aria-hidden />
+      </motion.div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/30 mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-gold" />
-            <span className="text-gold text-sm font-medium font-body">{t.heroBadge}</span>
-          </motion.div>
-
           {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6 font-heading"
+            className="text-4xl md:text-6xl lg:text-7xl font-normal leading-tight mb-6 font-heading"
           >
             <span className="text-foreground">{t.heroTitle1}</span>
             <br />

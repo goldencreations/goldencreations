@@ -1,19 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Send, 
-  Heart, 
-  QrCode, 
-  MessageSquare, 
-  GraduationCap,
-  Building2,
-  Users,
-  Cake,
-  Baby,
-  PartyPopper,
-  Briefcase
-} from "lucide-react";
+import Image from "next/image";
+import { Send, Heart, QrCode, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/lib/language-context";
 
@@ -43,15 +32,13 @@ export function Services() {
     },
   ];
 
-  const eventTypes = [
-    { icon: Heart, label: t.eventWedding },
-    { icon: Cake, label: t.eventBirthday },
-    { icon: Users, label: t.eventSendoff },
-    { icon: Building2, label: t.eventKitchen },
-    { icon: GraduationCap, label: t.eventGraduation },
-    { icon: Baby, label: t.eventBabyShower },
-    { icon: PartyPopper, label: t.eventCorporate },
-    { icon: Briefcase, label: t.eventConference },
+  const eventCards = [
+    { label: t.eventWedding, imageSrc: "/images/wedding.jpeg" },
+    { label: t.eventSendoff, imageSrc: "/images/sendoff.jpeg" },
+    {
+      label: t.eventKitchen,
+      imageSrc: "/images/kitchen%20party.jpeg",
+    },
   ];
 
   return (
@@ -117,18 +104,37 @@ export function Services() {
           <h3 className="text-xl md:text-2xl font-semibold mb-8 font-heading">
             {t.eventsTitle}
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {eventTypes.map((event, index) => (
+          <div className="flex w-full max-w-7xl mx-auto flex-nowrap items-stretch justify-center gap-5 md:gap-7 lg:gap-8">
+            {eventCards.map((event, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={event.imageSrc}
+                initial={{ opacity: 0, scale: 0.96, y: 12 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="flex items-center gap-2 px-5 py-3 rounded-full bg-card border border-border/50 hover:border-gold/50 transition-colors cursor-pointer group"
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                className="group min-w-0 flex-1 basis-0 cursor-default"
               >
-                <event.icon className="w-5 h-5 text-gold" />
-                <span className="text-sm font-medium font-body">{event.label}</span>
+                <div className="relative aspect-[3/5] w-full overflow-hidden rounded-3xl border border-border/50 bg-card shadow-sm transition-all duration-300 hover:border-gold/50 hover:shadow-md">
+                  <Image
+                    src={event.imageSrc}
+                    alt={event.label}
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    sizes="(max-width: 768px) 34vw, 400px"
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/25 to-transparent"
+                    aria-hidden
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-5 text-left md:p-7">
+                    <p className="text-xl font-semibold leading-tight text-white font-heading sm:text-2xl md:text-3xl">
+                      {event.label}
+                    </p>
+                    <p className="mt-2 text-sm font-normal text-white/90 font-body sm:text-base">
+                      {t.eventCardSubtitle}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

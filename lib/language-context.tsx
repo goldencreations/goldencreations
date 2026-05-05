@@ -43,6 +43,7 @@ interface Translations {
   eventBirthday: string;
   eventSendoff: string;
   eventKitchen: string;
+  eventCardSubtitle: string;
   eventGraduation: string;
   eventBabyShower: string;
   eventCorporate: string;
@@ -155,6 +156,7 @@ const translations: Record<Language, Translations> = {
     eventBirthday: "Birthdays",
     eventSendoff: "Send-offs",
     eventKitchen: "Kitchen Party",
+    eventCardSubtitle: "Invites & guest management",
     eventGraduation: "Graduations",
     eventBabyShower: "Baby Showers",
     eventCorporate: "Corporate Events",
@@ -265,6 +267,7 @@ const translations: Record<Language, Translations> = {
     eventBirthday: "Siku ya Kuzaliwa",
     eventSendoff: "Send-off",
     eventKitchen: "Kitchen Party",
+    eventCardSubtitle: "Mialiko na ufuatiliaji wa wageni",
     eventGraduation: "Graduation",
     eventBabyShower: "Baby Shower",
     eventCorporate: "Matukio ya Kikazi",

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Star, Sparkles, Crown, Phone } from "lucide-react";
+import { Check, Star, Crown, Phone } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
 const packages = [
@@ -107,6 +107,19 @@ const packages = [
   },
 ];
 
+function buildWhatsAppUrl(pkg: typeof packages[number], language: string) {
+  const features = pkg.features
+    .map((f) => `  ✓ ${language === "en" ? f.en : f.sw}`)
+    .join("\n");
+
+  const message =
+    language === "en"
+      ? `Hello Golden eCards! 👋\n\nI would like to choose the *${pkg.name}* package (Tsh ${pkg.price}/=).\n\nFeatures:\n${features}\n\nPlease get in touch with me. Thank you!`
+      : `Habari Golden eCards! 👋\n\nNingependa kuchagua paketi ya *${pkg.name}* (Tsh ${pkg.price}/=).\n\nVipengele:\n${features}\n\nTafadhali wasiliana nami. Asante!`;
+
+  return `https://wa.me/255765800227?text=${encodeURIComponent(message)}`;
+}
+
 export function Packages() {
   const { language, t } = useLanguage();
 
@@ -139,26 +152,6 @@ export function Packages() {
           </p>
         </motion.div>
 
-        {/* Discount Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20 border border-gold/30 rounded-2xl p-6 mb-12 text-center"
-        >
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <Sparkles className="w-5 h-5 text-gold" />
-            <span className="text-gold font-semibold font-body">
-              {language === 'en' ? 'LIMITED TIME OFFER' : 'OFA YA MUDA MFUPI'}
-            </span>
-            <Sparkles className="w-5 h-5 text-gold" />
-          </div>
-          <p className="text-foreground font-body">
-            {language === 'en' ? 'Call now for FREE consultation! WhatsApp: ' : 'Piga simu sasa upate ushauri wa BURE! WhatsApp: '}
-            <span className="text-gold font-bold">0765 800 227</span>
-          </p>
-        </motion.div>
 
         {/* Packages Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
@@ -179,7 +172,7 @@ export function Packages() {
                   </div>
                 </div>
               )}
-              <Card className={`h-full card-shimmer ${pkg.popular ? 'border-gold bg-gradient-to-b from-gold/10 to-transparent' : 'border-border/50 bg-card'}`}>
+              <Card className={`flex flex-col card-shimmer ${pkg.popular ? 'border-gold bg-gradient-to-b from-gold/10 to-transparent' : 'border-border/50 bg-card'}`}>
                 <CardHeader className="text-center pb-4">
                   <CardTitle className="font-heading">
                     {pkg.icon && <pkg.icon className="w-6 h-6 text-gold mx-auto mb-2" />}
@@ -192,7 +185,7 @@ export function Packages() {
                     {language === 'en' ? pkg.descriptionEN : pkg.descriptionSW}
                   </p>
                 </CardHeader>
-                <CardContent className="pt-4 border-t border-border/50">
+                <CardContent className="flex-1 pt-4 border-t border-border/50">
                   <ul className="space-y-2">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2 text-xs font-body">
@@ -201,20 +194,19 @@ export function Packages() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                </CardContent>
+                {/* Button always pinned at the bottom, outside scrollable content */}
+                <div className="px-6 pb-2 pt-4 border-t border-border/50">
+                  <Button
                     asChild
-                    className={`w-full mt-6 rounded-full text-sm font-body ${
-                      pkg.popular 
-                        ? 'bg-gold hover:bg-gold-dark text-background' 
-                        : 'bg-secondary hover:bg-secondary/80'
-                    }`}
+                    className="w-full rounded-full text-sm font-body bg-gold hover:bg-gold-dark text-black"
                   >
-                    <a href="https://wa.me/255765800227" target="_blank" rel="noopener noreferrer">
+                    <a href={buildWhatsAppUrl(pkg, language)} target="_blank" rel="noopener noreferrer">
                       <Phone className="w-3 h-3 mr-2" />
                       {t.packageCTA}
                     </a>
                   </Button>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
           ))}

@@ -2,10 +2,19 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play, Instagram } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Play, Instagram, X } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { QRCodeSVG } from "qrcode.react";
 import { useLanguage } from "@/lib/language-context";
+
+const INSTAGRAM_URL = "https://www.instagram.com/goldenecard?igsh=MWJ1ZXEwZzRiMDBleg==";
 
 const portfolioItems = [
   {
@@ -40,10 +49,13 @@ const portfolioItems = [
   },
 ];
 
+type PortfolioItem = typeof portfolioItems[number];
+
 export function Portfolio() {
   const { language, t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(language === 'en' ? "All" : "Zote");
   const [playingVideo, setPlayingVideo] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
   const categoriesEN = ["All", "Wedding", "Kitchen Party", "Send-off", "Birthday", "Corporate"];
   const categoriesSW = ["Zote", "Wedding", "Kitchen Party", "Send-off", "Birthday", "Corporate"];
@@ -158,7 +170,8 @@ export function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 card-shimmer"
+              className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 card-shimmer cursor-pointer"
+              onClick={() => setSelectedItem(item)}
             >
               {/* Image */}
               <div className="aspect-[3/4] relative overflow-hidden">
@@ -177,9 +190,32 @@ export function Portfolio() {
                   <p className="text-sm text-muted-foreground font-body">
                     {language === 'en' ? item.descriptionEN : item.descriptionSW}
                   </p>
+                  <span className="mt-4 text-xs text-gold/70 font-body border border-gold/30 rounded-full px-3 py-1">
+                    {language === 'en' ? 'Click to expand' : 'Bonyeza kuona'}
+                  </span>
                 </div>
+
+                {/* Floating QR badge — always visible */}
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute bottom-3 right-3 flex flex-col items-center gap-1 rounded-xl bg-background/90 backdrop-blur-sm border border-border/60 p-2 shadow-md hover:border-gold/50 transition-colors"
+                  aria-label="View on Instagram"
+                >
+                  <QRCodeSVG
+                    value={INSTAGRAM_URL}
+                    size={56}
+                    bgColor="transparent"
+                    fgColor="currentColor"
+                    className="text-foreground"
+                    level="M"
+                  />
+                  <span className="text-[9px] font-medium text-muted-foreground font-body leading-none">@goldenecard</span>
+                </a>
               </div>
-              
+
               {/* Content */}
               <div className="p-4">
                 <h3 className="font-semibold text-foreground font-heading">
@@ -190,6 +226,87 @@ export function Portfolio() {
             </motion.div>
           ))}
         </div>
+
+        {/* Lightbox Modal */}
+        <Dialog open={!!selectedItem} onOpenChange={(open) => { if (!open) setSelectedItem(null); }}>
+          <DialogContent
+            showCloseButton={false}
+            className="w-[calc(100%-2rem)] max-w-5xl sm:max-w-5xl max-h-[92vh] p-0 overflow-hidden border-border/50 bg-card gap-0"
+          >
+            <DialogTitle className="sr-only">
+              {selectedItem ? (language === 'en' ? selectedItem.titleEN : selectedItem.titleSW) : ''}
+            </DialogTitle>
+            <DialogDescription className="sr-only">
+              {selectedItem ? (language === 'en' ? selectedItem.descriptionEN : selectedItem.descriptionSW) : ''}
+            </DialogDescription>
+
+            {selectedItem && (
+              <div className="flex flex-col md:flex-row h-[88vh]">
+                {/* Image panel */}
+                <div className="relative flex-1 min-h-[45vh] md:min-h-0 bg-black overflow-hidden">
+                  <Image
+                    src={selectedItem.image}
+                    alt={language === 'en' ? selectedItem.titleEN : selectedItem.titleSW}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 65vw"
+                    priority
+                  />
+                </div>
+
+                {/* Info + QR panel */}
+                <div className="flex flex-col gap-5 p-6 w-full md:w-72 shrink-0 border-t md:border-t-0 md:border-l border-border/50 overflow-y-auto">
+                  {/* Close button */}
+                  <button
+                    onClick={() => setSelectedItem(null)}
+                    className="self-end rounded-full p-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                    aria-label="Close"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+
+                  <div className="flex flex-col gap-3">
+                    <span className="text-xs font-medium tracking-wider uppercase text-gold font-body">
+                      {selectedItem.category}
+                    </span>
+                    <h2 className="text-xl font-semibold font-heading leading-snug">
+                      {language === 'en' ? selectedItem.titleEN : selectedItem.titleSW}
+                    </h2>
+                    <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                      {language === 'en' ? selectedItem.descriptionEN : selectedItem.descriptionSW}
+                    </p>
+                  </div>
+
+                  {/* QR Code */}
+                  <div className="flex flex-col items-center gap-3 rounded-xl border border-border/50 bg-background p-4 mt-auto">
+                    <QRCodeSVG
+                      value={INSTAGRAM_URL}
+                      size={150}
+                      bgColor="transparent"
+                      fgColor="currentColor"
+                      className="text-foreground"
+                      level="M"
+                    />
+                    <p className="text-xs text-center text-muted-foreground font-body">
+                      {language === 'en'
+                        ? 'Scan to see more samples on Instagram'
+                        : 'Scan kuona mifano zaidi kwenye Instagram'}
+                    </p>
+                    <a
+                      href={INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs font-medium text-gold hover:underline font-body"
+                    >
+                      <Instagram className="w-3.5 h-3.5" />
+                      @goldenecard
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* View More Button */}
         <motion.div

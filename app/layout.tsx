@@ -1,12 +1,23 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({ 
-  subsets: ["latin"],
-  weight: ['400', '500', '600', '700'],
+const chunkFive = localFont({
+  src: [
+    {
+      path: '../fonts/webfonts/ChunkFive-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/webfonts/ChunkFive-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
   variable: '--font-heading',
   display: 'swap',
 });
@@ -246,7 +257,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${cormorant.variable} ${inter.variable} antialiased`}>
+      <body className={`${chunkFive.variable} ${inter.variable} antialiased`}>
         <LanguageProvider>
           {children}
         </LanguageProvider>
