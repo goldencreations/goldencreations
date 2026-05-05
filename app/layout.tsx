@@ -113,9 +113,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/logo.png', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
-    apple: '/images/logo.png',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
   },
 }
 
@@ -136,7 +137,7 @@ export default function RootLayout({
               "name": "Golden eCards",
               "description": "Tanzania's premier digital invitation and event management platform",
               "url": "https://goldencreationss.com",
-              "logo": "https://goldencreationss.com/images/logo.png",
+              "logo": "https://goldencreationss.com/icon.svg",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+255-765-800-227",

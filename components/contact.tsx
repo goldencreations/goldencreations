@@ -47,11 +47,10 @@ export function Contact() {
     <motion.section
       id="contact"
       className="py-24 bg-background relative"
-      initial={{ opacity: 0, y: 100, scale: 0.92, rotateX: 8, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-      style={{ transformOrigin: "center bottom" }}
     >
       <div className="celebration-pattern" />
       <div className="container mx-auto px-4 relative z-10">
@@ -88,25 +87,31 @@ export function Contact() {
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm mb-2 font-body">{t.contactName}</label>
+                      <label htmlFor="contact-name" className="block text-sm mb-2 font-body">{t.contactName}</label>
                       <input 
+                        id="contact-name"
+                        name="name"
                         type="text" 
                         placeholder={language === 'en' ? "Your name" : "Jina lako"}
+                        autoComplete="name"
                         className="w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 focus:border-gold/50 focus:outline-none transition-colors font-body"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm mb-2 font-body">{t.contactPhone}</label>
+                      <label htmlFor="contact-phone" className="block text-sm mb-2 font-body">{t.contactPhone}</label>
                       <input 
+                        id="contact-phone"
+                        name="phone"
                         type="tel" 
                         placeholder="07XX XXX XXX"
+                        autoComplete="tel"
                         className="w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 focus:border-gold/50 focus:outline-none transition-colors font-body"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm mb-2 font-body">{t.contactEvent}</label>
-                    <select className="w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 focus:border-gold/50 focus:outline-none transition-colors font-body">
+                    <label htmlFor="contact-event" className="block text-sm mb-2 font-body">{t.contactEvent}</label>
+                    <select id="contact-event" name="eventType" className="w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 focus:border-gold/50 focus:outline-none transition-colors font-body">
                       <option value="">{language === 'en' ? 'Select event type' : 'Chagua aina ya tukio'}</option>
                       <option value="wedding">{language === 'en' ? 'Wedding' : 'Harusi'}</option>
                       <option value="sendoff">Send-off</option>
@@ -119,10 +124,12 @@ export function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm mb-2 font-body">
+                    <label htmlFor="contact-message" className="block text-sm mb-2 font-body">
                       {language === 'en' ? 'Your Message' : 'Ujumbe Wako'}
                     </label>
                     <textarea 
+                      id="contact-message"
+                      name="message"
                       rows={4}
                       placeholder={t.contactMessage}
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 focus:border-gold/50 focus:outline-none transition-colors resize-none font-body"
