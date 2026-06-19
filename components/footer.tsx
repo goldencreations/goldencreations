@@ -54,6 +54,13 @@ export function Footer() {
       { label: "Maoni", href: "/testimonials" },
       { label: "Wasiliana", href: "/contact" },
     ],
+    legal: language === 'en' ? [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Delete User Account in App", href: "/delete-user-account-in-app" },
+    ] : [
+      { label: "Sera ya Faragha", href: "/privacy-policy" },
+      { label: "Futa Akaunti ya Mtumiaji Kwenye App", href: "/delete-user-account-in-app" },
+    ],
   };
 
   const swahiliSeoLinks = [
@@ -131,6 +138,21 @@ export function Footer() {
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
                   <Link 
+                    href={link.href}
+                    className="text-muted-foreground hover:text-gold transition-colors text-sm font-body"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h4 className="font-semibold mt-8 mb-4 font-heading">
+              {language === "en" ? "Legal" : "Kisheria"}
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.href}>
+                  <Link
                     href={link.href}
                     className="text-muted-foreground hover:text-gold transition-colors text-sm font-body"
                   >

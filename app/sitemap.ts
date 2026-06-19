@@ -20,6 +20,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/testimonials",
     "/packages",
     "/contact",
+    "/privacy-policy",
+    "/delete-user-account-in-app",
     "/kadi-za-mialiko",
     "/mialiko-ya-kidigitali",
     "/kadi-za-mialiko-ya-harusi",
