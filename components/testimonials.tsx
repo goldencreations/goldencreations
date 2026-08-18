@@ -104,7 +104,7 @@ export function Testimonials() {
     <motion.section
       id="testimonials"
       className="py-24 bg-secondary/50 relative"
-      initial={{ opacity: 0, y: 40 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
@@ -113,7 +113,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
@@ -133,7 +133,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -182,7 +182,7 @@ export function Testimonials() {
 
         {/* Trust Badges */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}

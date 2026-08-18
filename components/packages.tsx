@@ -127,7 +127,7 @@ export function Packages() {
     <motion.section
       id="packages"
       className="py-24 bg-background relative"
-      initial={{ opacity: 0, y: 40 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
@@ -136,7 +136,7 @@ export function Packages() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
@@ -157,7 +157,7 @@ export function Packages() {
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -213,7 +213,7 @@ export function Packages() {
 
         {/* Custom Package CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
